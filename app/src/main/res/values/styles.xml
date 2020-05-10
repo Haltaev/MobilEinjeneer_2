@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-<!--        <item name="android:windowBackground"></item>-->
+        <item name="android:windowBackground">@drawable/back_theme</item>
 
         <item name="pf_key_button">@style/MyLockScreenButtonStyle</item>
         <item name="pf_fingerprint_button">@style/MyLockScreenFingerprintButtonStyle</item>
