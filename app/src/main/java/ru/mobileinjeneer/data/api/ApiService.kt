@@ -2,8 +2,7 @@ package ru.mobileinjeneer.data.api
 
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Path
-import ru.mobileinjeneer.data.api.module.Resp
+import ru.mobileinjeneer.data.api.model.Resp
 
 interface ApiService {
     @GET("employees")

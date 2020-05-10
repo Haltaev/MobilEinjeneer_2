@@ -1,4 +1,4 @@
-package ru.mobileinjeneer.data.api.module
+package ru.mobileinjeneer.data.api.model
 
 data class Resp(
     var status: String,

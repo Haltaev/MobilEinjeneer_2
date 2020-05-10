@@ -1,13 +1,14 @@
 package ru.mobileinjeneer
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.activity_main.*
 import ru.mobileinjeneer.common.PreferencesManager
 import ru.mobileinjeneer.common.injectViewModel
+import ru.mobileinjeneer.ui.activity.AuthorizationActivity
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -25,18 +26,24 @@ class MainActivity : AppCompatActivity() {
         App.getComponent().inject(this)
         viewModel = injectViewModel(viewModelFactory)
 
-//        success.text = preferencesManager.status
-        observeViewModel(viewModel)
-        viewModel.getContacts()
+        AuthorizationActivity.open(this)
+        finish()
     }
 
     private fun observeViewModel(viewModel: MainViewModel) {
         viewModel.apply {
             dataLiveData.observe(this@MainActivity, Observer { resp ->
-                success.text = preferencesManager.status
-                Toast.makeText(context, "Эдгар, пош...", Toast.LENGTH_LONG).show()
-                Toast.makeText(context, "Эдгар, я все сделал", Toast.LENGTH_LONG).show()
+
             })
+        }
+    }
+
+    companion object {
+        fun open(context: Context) {
+            val intent = Intent(context, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(intent)
         }
     }
 }

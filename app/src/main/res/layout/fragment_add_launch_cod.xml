@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain">
+
+    <FrameLayout
+        android:id="@+id/fl_bar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/log_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="16dp"
+            android:layout_gravity="center|end"
+            android:src="@drawable/ic_log_out" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/text_enter_cod"
+            style="@style/MainFontBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/pick_launch_cod" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="32dp" />
+
+        <ru.mobileinjeneer.ui.CodeView
+            android:id="@+id/code_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp" />
+
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/ll_code_checkbox"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/text">-->
+
+
+<!--            <ImageView-->
+<!--                android:id="@+id/circle_1"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:background="@drawable/ic_circle_blue" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/circle_2"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:src="@drawable/ic_circle_blue" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/circle_3"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:background="@drawable/ic_circle_blue"  />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/circle_4"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:background="@drawable/ic_circle_blue" />-->
+<!--        </LinearLayout>-->
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="32dp" />
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/num_button_1"
+                    style="@style/MyLockScreenButtonStyle"
+                    android:text="@string/number_1" />
+
+                <TextView
+                    android:id="@+id/num_button_2"
+                    style="@style/MyLockScreenButtonStyle"
+                    android:text="@string/number_2" />
+
+                <TextView
+                    android:id="@+id/num_button_3"
+                    style="@style/MyLockScreenButtonStyle"
+                    android:text="@string/number_3" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/num_button_4"
+                    style="@style/MyLockScreenButtonStyle"
+                    android:text="@string/number_4" />
+
+                <TextView
+                    android:id="@+id/num_button_5"
+                    style="@style/MyLockScreenButtonStyle"
+                    android:text="@string/number_5" />
+
+                <TextView
+                    android:id="@+id/num_button_6"
+                    style="@style/MyLockScreenButtonStyle"
+                    android:text="@string/number_6" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/num_button_7"
+                    style="@style/MyLockScreenButtonStyle"
+                    android:text="@string/number_7" />
+
+                <TextView
+                    android:id="@+id/num_button_8"
+                    style="@style/MyLockScreenButtonStyle"
+                    android:text="@string/number_8" />
+
+                <TextView
+                    android:id="@+id/num_button_9"
+                    style="@style/MyLockScreenButtonStyle"
+                    android:text="@string/number_9" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <View
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/num_button_0"
+                    style="@style/MyLockScreenButtonStyle"
+                    android:text="@string/number_0" />
+
+                <ImageView
+                    android:id="@+id/touch_id"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/ic_touch_id"
+                    android:layout_gravity="center"/>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

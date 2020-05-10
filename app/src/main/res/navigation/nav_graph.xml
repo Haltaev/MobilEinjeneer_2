@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_auth">
+    <fragment
+        android:id="@+id/nav_auth"
+        android:name="ru.mobileinjeneer.ui.fragment.authorization.AuthorizationFragment"
+        android:label="Авторизация"
+        tools:layout="@layout/fragment_auth" />
+
+    <fragment
+        android:id="@+id/nav_enter_launch_cod"
+        android:name="ru.mobileinjeneer.ui.fragment.authorization.AuthorizationCodeFragment"
+        android:label="Авторизация"
+        tools:layout="@layout/fragment_auth" />
+
+</navigation>

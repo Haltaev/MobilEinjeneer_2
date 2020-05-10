@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import ru.mobileinjeneer.common.PreferencesManager
 import ru.mobileinjeneer.data.api.ApiService
-import ru.mobileinjeneer.data.api.module.Resp
+import ru.mobileinjeneer.data.api.model.Resp
 import java.net.UnknownHostException
 import javax.inject.Inject
 
