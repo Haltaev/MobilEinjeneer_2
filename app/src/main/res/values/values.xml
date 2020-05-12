@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="code_margin">16dp</dimen>
+    <dimen name="code_width">15dp</dimen>
+    <dimen name="code_gravity">19dp</dimen>
+    <dimen name="code_padding">5dp</dimen>
 </resources>

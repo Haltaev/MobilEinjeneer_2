@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Mobil Einjeneer</string>
+    <string name="app_name">Мобильный инженер</string>
 
     <string name="yes">Да</string>
     <string name="no">Нет</string>
@@ -9,12 +9,12 @@
     <string name="login">Логин</string>
     <string name="password">Пароль</string>
     <string name="enter_cod">Введите код</string>
-    <string name="invalid_entered_cod">Неверно \n введен код</string>
-    <string name="pick_launch_cod">Придумайте код \n для быстрого входа</string>
-    <string name="replay_pick_launch_cod">Повторите код \n для быстрого входа</string>
-    <string name="add_touch_id">В телефоне есть \n сканер отпечатка пальца</string>
-    <string name="use_touch_id_">Используйте его для входа — \n это очень удобно!</string>
-    <string name="touch_your_scanner">Коснитесь сканера \n отпечатков</string>
+    <string name="invalid_entered_cod">Неверно\n введен код</string>
+    <string name="pick_launch_cod">Придумайте код\n для быстрого входа</string>
+    <string name="replay_pick_launch_cod">Повторите код\n для быстрого входа</string>
+    <string name="add_touch_id">В телефоне есть\n сканер отпечатка пальца</string>
+    <string name="use_touch_id_">Используйте его для входа —\n это очень удобно!</string>
+    <string name="touch_your_scanner">Коснитесь сканера\n отпечатков</string>
     <string name="use_touch_id">Использовать сканер</string>
     <string name="wrong_pass">Пароль введен неверно</string>
 
@@ -31,4 +31,16 @@
 
     <string name="my_storage">Мой склад</string>
     <string name="in_stock">В наличии</string>
+    <string name="broadcast">Передача</string>
+    <string name="search">Поиск</string>
+    <string name="selected">Выбрано</string>
+    <string name="receive">Получить</string>
+    <string name="refuse">Отказаться</string>
+    <string name="available_for">Доступно для получения</string>
+    <string name="transfer_to_engineer">Передать\nинженеру</string>
+    <string name="install_in_device">Установить\nв устройство</string>
+    <string name="not_transfer">Не передавать</string>
+    <string name="return_to_the_warehouse">Сдать\nна склад</string>
+    <string name="_count">%s шт</string>
+    <string name="art_">Арт: %s</string>
 </resources>

@@ -6,13 +6,13 @@
     app:startDestination="@id/nav_auth">
     <fragment
         android:id="@+id/nav_auth"
-        android:name="ru.mobileinjeneer.ui.fragment.authorization.AuthorizationFragment"
+        android:name="ru.mobilengineer.ui.fragment.authorization.AuthorizationFragment"
         android:label="Авторизация"
         tools:layout="@layout/fragment_auth" />
 
     <fragment
         android:id="@+id/nav_enter_launch_cod"
-        android:name="ru.mobileinjeneer.ui.fragment.authorization.AuthorizationCodeFragment"
+        android:name="ru.mobilengineer.ui.fragment.authorization.AuthorizationCodeFragment"
         android:label="Авторизация"
         tools:layout="@layout/fragment_auth" />
 
