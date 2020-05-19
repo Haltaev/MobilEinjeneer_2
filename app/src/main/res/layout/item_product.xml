@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/product_root"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/colorSpace" />
+
 
     <LinearLayout
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -13,48 +25,62 @@
             android:id="@+id/check"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_check"
+            android:visibility="visible"
+            android:layout_marginEnd="7dp"
+            android:layout_marginTop="11dp"
+            android:src="@drawable/circle_check"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/name"
-                android:layout_width="match_parent"
+                style="@style/ProductTitleStyle"
+                android:layout_marginTop="10dp"
+                android:layout_width="288dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="@string/replay_pick_launch_cod" />
+                tools:text="Картридж Kyocera TK1140 FS-1035/1135 7.2K SuperFine " />
 
-            <TextView
-                android:text="@string/art_"
-                android:id="@+id/art"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name"
-                tools:text="Арт: ТК1130" />
+            <LinearLayout
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="14dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name"
-                tools:text="3 шт" />
+                <TextView
+                    android:id="@+id/art"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    style="@style/ProductArtStyle"
+                    android:text="@string/art_"
+                    tools:text="Арт: ТК1130" />
 
-            <TextView
-                android:id="@+id/is_in_stock"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/count"
-                app:layout_constraintTop_toBottomOf="@+id/name"
-                tools:text="В наличии" />
+                <TextView
+                    android:id="@+id/is_in_stock"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    style="@style/ProductInStockStyle"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    tools:text="В наличии" />
+
+                <TextView
+                    android:id="@+id/count"
+                    android:gravity="end"
+                    style="@style/CountsFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:textSize="14sp"
+                    tools:text="3 шт" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -64,39 +90,49 @@
                 app:layout_constraintTop_toBottomOf="@id/art">
 
                 <Button
-                    style="@style/MyActionNegativeButtonStyle"
-                    android:text="@string/not_transfer"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="23dp"
                     android:id="@+id/button_not_transfer"
+                    style="@style/MyActionNegativeButtonStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="@string/not_transfer" />
 
-                <Button
-                    style="@style/MyActionPositiveButtonStyle"
-                    android:text="@string/transfer_to_engineer"
-                    android:id="@+id/button_transfer"
+                <LinearLayout
+                    android:layout_marginBottom="23dp"
+                    android:layout_marginTop="12dp"
+                    android:id="@+id/positive_buttons_group"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content">
 
-                <Button
-                    style="@style/MyActionPositiveButtonStyle"
-                    android:text="@string/return_to_the_warehouse"
-                    android:id="@+id/button_turn_in"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    <Button
+                        android:id="@+id/button_transfer"
+                        style="@style/MyActionPositiveButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/transfer_to_engineer" />
 
-                <Button
-                    style="@style/MyActionPositiveButtonStyle"
-                    android:text="@string/install_in_device"
-                    android:id="@+id/button_install"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    <Button
+                        android:id="@+id/button_turn_in"
+                        style="@style/MyActionPositiveButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/return_to_the_warehouse" />
+
+                    <Button
+                        android:id="@+id/button_install"
+                        style="@style/MyActionPositiveButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/install_in_device" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
-
-</androidx.cardview.widget.CardView>
+</LinearLayout>

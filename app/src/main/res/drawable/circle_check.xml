@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_activated="false">
+        <vector android:width="18dp" android:height="18dp" android:viewportWidth="18" android:viewportHeight="18">
+            <path android:fillColor="#ffffff" android:pathData="M9,9m-8.5,0a8.5,8.5 0,1 1,17 0a8.5,8.5 0,1 1,-17 0" android:strokeWidth="1" android:strokeColor="#3F6BB8" />
+        </vector>
+    </item>
+
+    <item android:state_activated="true">
+        <vector android:width="18dp" android:height="18dp" android:viewportWidth="18" android:viewportHeight="18">
+            <path android:fillColor="#ffffff" android:pathData="M9,9m-8.5,0a8.5,8.5 0,1 1,17 0a8.5,8.5 0,1 1,-17 0" android:strokeWidth="1" android:strokeColor="#3F6BB8" />
+            <path android:fillColor="#3F6BB8" android:fillType="evenOdd" android:pathData="M15.0791,5.0876C15.307,5.3154 15.307,5.6848 15.0791,5.9126L8.6625,12.3292C8.4347,12.557 8.0653,12.557 7.8375,12.3292L4.9208,9.4126C4.693,9.1847 4.693,8.8154 4.9208,8.5876C5.1487,8.3598 5.518,8.3598 5.7458,8.5876L8.25,11.0918L14.2542,5.0876C14.482,4.8598 14.8513,4.8598 15.0791,5.0876Z" />
+        </vector>
+    </item>
+</selector>

@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/text_enter_cod"
+            android:id="@+id/text_head_cod"
             style="@style/MainFontBold"
             android:layout_width="match_parent"
             android:layout_height="66dp"

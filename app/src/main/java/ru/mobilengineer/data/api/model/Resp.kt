@@ -12,3 +12,13 @@ data class ModuleData(
     var employee_age: String,
     var profile_image: String
 )
+
+data class Product(
+    var id: String,
+    var title: String,
+    var articul: String,
+    var count: String,
+    var inStock: Boolean,
+    var isEnabled: Boolean = false,
+    var isPicked: Boolean = false
+)

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context="ru.mobilengineer.ui.fragment.profile.EditProfileNameFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fl_bar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/colorMain"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/button_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_arrow_left"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/MainFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="9dp"
+            android:text="@string/name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/button_back"
+            app:layout_constraintRight_toLeftOf="@+id/button_save"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/button_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|end"
+            android:padding="16dp"
+            android:src="@drawable/ic_check"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin = "16dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/fl_bar">
+
+        <EditText
+            android:inputType="textCapSentences"
+            android:layout_marginTop="30dp"
+            android:id="@+id/last_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorHint"
+            android:drawableStart="@drawable/ic_line_38"
+            android:drawablePadding="7dp"
+            android:imeOptions="actionNext"
+            tools:text="Иванов" />
+
+        <EditText
+            android:inputType="textCapSentences"
+            android:layout_marginTop="30dp"
+            android:id="@+id/first_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_line_38"
+            android:drawablePadding="7dp"
+            android:imeOptions="actionNext" />
+
+        <EditText
+            android:inputType="textCapSentences"
+            android:layout_marginTop="30dp"
+            android:id="@+id/patronymic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_line_38"
+            android:drawablePadding="7dp"
+            android:imeOptions="actionDone" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

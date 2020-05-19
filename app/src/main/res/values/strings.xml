@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Мобильный инженер</string>
 
+    <string name="settings">Настройки</string>
+    <string name="name">Фамилия Имя Отчество</string>
+
     <string name="yes">Да</string>
     <string name="no">Нет</string>
     <string name="cancel">Отмена</string>
@@ -11,7 +14,7 @@
     <string name="enter_cod">Введите код</string>
     <string name="invalid_entered_cod">Неверно\n введен код</string>
     <string name="pick_launch_cod">Придумайте код\n для быстрого входа</string>
-    <string name="replay_pick_launch_cod">Повторите код\n для быстрого входа</string>
+    <string name="repeat_launch_cod">Повторите код\n для быстрого входа</string>
     <string name="add_touch_id">В телефоне есть\n сканер отпечатка пальца</string>
     <string name="use_touch_id_">Используйте его для входа —\n это очень удобно!</string>
     <string name="touch_your_scanner">Коснитесь сканера\n отпечатков</string>
@@ -31,7 +34,7 @@
 
     <string name="my_storage">Мой склад</string>
     <string name="in_stock">В наличии</string>
-    <string name="broadcast">Передача</string>
+    <string name="transfer">Передача</string>
     <string name="search">Поиск</string>
     <string name="selected">Выбрано</string>
     <string name="receive">Получить</string>
@@ -43,4 +46,16 @@
     <string name="return_to_the_warehouse">Сдать\nна склад</string>
     <string name="_count">%s шт</string>
     <string name="art_">Арт: %s</string>
+
+    <string name="available_for_in_main_frame">Доступно для получения\nна главном складе</string>
+    <string name="take_away_from_mini_frame">Забрать с мини-склада</string>
+    <string name="take_away_from_another_engineer">Забрать у другого инженера</string>
+
+    <string name="biometric">Биометрия</string>
+    <string name="change_login_passcode">Сменить код входа</string>
+    <string name="position">Должность</string>
+
+    <string name="error_permission_gallery">Необходимо разрешение для доступа к галерее</string>
+    <string name="error_permission_gallery_settings">Необходимо разрешение для доступа к галерее. Перейдите в настройки</string>
+    <string name="error_photo_processing">Ошибка обработки фото</string>
 </resources>

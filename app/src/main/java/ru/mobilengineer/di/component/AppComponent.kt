@@ -9,9 +9,15 @@ import ru.mobilengineer.di.module.VMModule
 import ru.mobilengineer.di.module.ViewModelModule
 import ru.mobilengineer.ui.activity.AuthorizationActivity
 import ru.mobilengineer.ui.activity.BaseActivity
+import ru.mobilengineer.ui.activity.HomeActivity
+import ru.mobilengineer.ui.activity.MyProfileActivity
 import ru.mobilengineer.ui.fragment.authorization.AddTouchIdFragment
 import ru.mobilengineer.ui.fragment.authorization.AuthorizationCodeFragment
 import ru.mobilengineer.ui.fragment.authorization.AuthorizationFragment
+import ru.mobilengineer.ui.fragment.home.HomeFragment
+import ru.mobilengineer.ui.fragment.profile.EditProfileNameFragment
+import ru.mobilengineer.ui.fragment.profile.MyProfileFragment
+import ru.mobilengineer.ui.fragment.profile.ProfileSettingsFragment
 import javax.inject.Singleton
 
 @Singleton
@@ -25,4 +31,10 @@ interface AppComponent {
     fun inject(activity: AuthorizationActivity)
     fun inject(activity: AuthorizationCodeFragment)
     fun inject(activity: AddTouchIdFragment)
+    fun inject(activity: MyProfileFragment)
+    fun inject(activity: ProfileSettingsFragment)
+    fun inject(activity: EditProfileNameFragment)
+    fun inject(activity: MyProfileActivity)
+    fun inject(activity: HomeActivity)
+    fun inject(activity: HomeFragment)
 }

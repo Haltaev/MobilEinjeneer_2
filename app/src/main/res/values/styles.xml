@@ -35,6 +35,16 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="CountsFont" parent="MainFontBold">
+        <item name="android:textColor">@color/colorMain</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="DarkMainFont" parent="MainFont">
+        <item name="android:textColor">@color/colorTextDark</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <style name="EditTextFont" parent="MainFont">
         <item name="android:textSize">16sp</item>
     </style>
@@ -105,5 +115,29 @@
 
     <style name="MyActionNegativeButtonStyle" parent="MyActionPositiveButtonStyle">
         <item name="android:backgroundTint">@color/colorButtonNegative</item>
+    </style>
+
+    <style name="ProductTitleStyle" >
+        <item name="android:textColor">@color/colorTextDark</item>
+        <item name="fontFamily">@font/notosans_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="ProductArtStyle" >
+        <item name="android:textColor">@color/colorButtonNegative</item>
+        <item name="fontFamily">@font/notosans_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="SearchStyle" >
+        <item name="android:textColor">@color/colorTextDark</item>
+        <item name="fontFamily">@font/notosans_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="ProductInStockStyle" >
+        <item name="fontFamily">@font/notosans_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>
