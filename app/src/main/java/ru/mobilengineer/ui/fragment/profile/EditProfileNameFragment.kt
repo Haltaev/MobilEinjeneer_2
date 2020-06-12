@@ -31,9 +31,12 @@ class EditProfileNameFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        first_name.hint = preferencesManager.firstName.toString()
-        last_name.hint = preferencesManager.lastName.toString()
-        patronymic.hint = preferencesManager.patronymic.toString()
+
+        preferencesManager.apply {
+            first_name.hint = firstName.toString()
+            last_name.hint = lastName.toString()
+            patronymic_text_view.hint = patronymic.toString()
+        }
 
         button_back.setOnClickListener {
             activity?.supportFragmentManager?.popBackStack()
@@ -44,8 +47,8 @@ class EditProfileNameFragment : BaseFragment() {
                 preferencesManager.firstName = first_name.text.toString()
             }
 
-            if(patronymic.text.toString() != "") {
-                preferencesManager.patronymic = patronymic.text.toString()
+            if(patronymic_text_view.text.toString() != "") {
+                preferencesManager.patronymic = patronymic_text_view.text.toString()
             }
 
             if(last_name.text.toString() != "") {

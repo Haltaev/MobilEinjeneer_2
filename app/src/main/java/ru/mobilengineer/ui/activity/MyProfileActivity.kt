@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import kotlinx.android.synthetic.main.progress_bar.*
 import ru.mobilengineer.App
 import ru.mobilengineer.R
 import ru.mobilengineer.common.PreferencesManager
@@ -65,6 +67,13 @@ class MyProfileActivity : BaseActivity() {
             .beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()
+    }
+
+    fun showProgressBar() {
+        progress_bar.visibility = View.VISIBLE
+    }
+    fun hideProgressBar() {
+        progress_bar.visibility = View.GONE
     }
 
     companion object {

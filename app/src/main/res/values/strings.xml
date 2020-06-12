@@ -41,21 +41,52 @@
     <string name="refuse">Отказаться</string>
     <string name="available_for">Доступно для получения</string>
     <string name="transfer_to_engineer">Передать\nинженеру</string>
+    <string name="transfer_to_engineer_">Передать</string>
     <string name="install_in_device">Установить\nв устройство</string>
+    <string name="install_in_device_">Установить в устройство</string>
     <string name="not_transfer">Не передавать</string>
     <string name="return_to_the_warehouse">Сдать\nна склад</string>
+    <string name="return_to_the_warehouse_">Сдать на склад</string>
+    <string name="pick_warehouse_from_list">Выбрать склад из списка</string>
+    <string name="pick_engineer_from_list">Выбрать инженера</string>
     <string name="_count">%s шт</string>
     <string name="art_">Арт: %s</string>
+    <string name="serial_number">Серийный номер:</string>
 
-    <string name="available_for_in_main_frame">Доступно для получения\nна главном складе</string>
-    <string name="take_away_from_mini_frame">Забрать с мини-склада</string>
+    <string name="available_for_in_main_warehouse">Доступно для получения\nна главном складе</string>
+    <string name="take_away_from_mini_warehouse">Забрать с мини-склада</string>
     <string name="take_away_from_another_engineer">Забрать у другого инженера</string>
 
     <string name="biometric">Биометрия</string>
     <string name="change_login_passcode">Сменить код входа</string>
     <string name="position">Должность</string>
 
+    <string name="error_permission_gallery_and_camera">Необходимо разрешение для доступа к галерее и камере</string>
     <string name="error_permission_gallery">Необходимо разрешение для доступа к галерее</string>
+    <string name="error_permission_gallery_and_camera_settings">Необходимо разрешение для доступа к галерее и камере. Перейдите в настройки</string>
     <string name="error_permission_gallery_settings">Необходимо разрешение для доступа к галерее. Перейдите в настройки</string>
     <string name="error_photo_processing">Ошибка обработки фото</string>
+
+    <string name="sort">Сортирока</string>
+    <string name="consider_serial_number">Учитывать серийный номер</string>
+    <string name="title">Название</string>
+    <string name="vendor_code">Артикул</string>
+    <string name="quantity">Количество</string>
+    <string name="date_of_receiving">Дата получения</string>
+
+    <string name="choose_manually">Выбрать\nвручную</string>
+    <string name="scan_warehouse_barcode">Отсканируйте штрих-код склада</string>
+    <string name="next">Далее</string>
+    <string name="cartridges_selected">Выбрано картриджей</string>
+    <string name="total">Итого</string>
+    <string name="warehouse">Склад</string>
+    <string name="confirm">Подтвердить</string>
+    <string name="device">Устройство</string>
+    <string name="install">Установить</string>
+    <string name="attach_photo_of_the_serial_number">Прикрепить фото серийного номера</string>
+    <string name="device_serial_number">Серийный номер устройства</string>
+    <string name="sheet_counter">Счетчик листов</string>
+    <string name="attach_sheet_counter">Прикрепить фото счетчика</string>
+    <string name="for_who">Кому</string>
+    <string name="take_away">Забрать</string>
 </resources>

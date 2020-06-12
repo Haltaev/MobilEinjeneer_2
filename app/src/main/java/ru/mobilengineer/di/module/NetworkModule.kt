@@ -36,6 +36,7 @@ class NetworkModule {
         val builder = OkHttpClient.Builder()
             .addInterceptor(requestInterceptor)
             .addInterceptor(ChuckInterceptor(context))
+            .addInterceptor(requestInterceptor)
             .readTimeout(REQUEST_TIMEOUT, TimeUnit.SECONDS)
             .connectTimeout(REQUEST_TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(REQUEST_TIMEOUT, TimeUnit.SECONDS)
@@ -49,7 +50,7 @@ class NetworkModule {
     fun provideRestAdapter(okHttpClient: OkHttpClient): Retrofit {
         val builder = Retrofit.Builder()
         builder.client(okHttpClient)
-            .baseUrl("http://dummy.restapiexample.com/api/v1/")
+            .baseUrl("http://147.78.67.28/")
             .addConverterFactory(GsonConverterFactory.create())
         return builder.build()
     }

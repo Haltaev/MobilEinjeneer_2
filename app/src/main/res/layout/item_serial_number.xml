@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/serial_number_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/colorSpace" />
+
+    <TextView
+        android:id="@+id/art"
+        style="@style/ProductArtStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/serial_number" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/number"
+            style="@style/ProductTitleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            tools:text="85456 6995545ЕК" />
+
+        <TextView
+            android:id="@+id/count"
+            style="@style/CountsFont"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:textSize="14sp"
+            tools:text="3 шт" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttons_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="18dp">
+
+        <Button
+            android:id="@+id/button_take_away"
+            style="@style/MyActionPositiveButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/transfer_to_engineer" />
+
+        <Button
+            android:id="@+id/button_return_to_warehouse"
+            style="@style/MyActionPositiveButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/return_to_the_warehouse" />
+
+        <Button
+            android:id="@+id/button_install_in_device"
+            style="@style/MyActionPositiveButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/install_in_device" />
+
+    </LinearLayout>
+
+</LinearLayout>

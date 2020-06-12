@@ -43,7 +43,7 @@
             android:imeOptions="actionNext"
             android:inputType="text"
             android:paddingBottom="16dp"
-            android:text="test"
+            android:text="ivanov"
             android:textColorHint="@color/colorWhite" />
 
         <Space
@@ -62,7 +62,7 @@
             android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:paddingBottom="16dp"
-            android:text="123456"
+            android:text="nfobRfhnhbl;№3"
             android:textColorHint="@color/colorWhite" />
 
         <TextView

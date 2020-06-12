@@ -2,8 +2,9 @@
 <resources>
     <color name="colorPrimary">#3F6BB8</color>
     <color name="colorPrimaryDark">#2D5DAF</color>
-    <color name="colorAccent">#FFFFFF</color>
+    <color name="colorAccent">#3F6BB8</color>
     <color name="colorMain">#3F6BB8</color>
+    <color name="colorMainWithAlpha">#993F6BB8</color>
     <color name="colorButtonNegative">#808285</color>
     <color name="colorTextDark">#474747</color>
     <color name="colorWhite">#FFFFFF</color>

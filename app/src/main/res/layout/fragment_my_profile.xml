@@ -46,6 +46,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="24dp"
+                    android:padding="4dp"
                     android:src="@drawable/ic_settings"
                     app:layout_constraintBottom_toTopOf="@id/ll_text"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -103,7 +104,6 @@
                         android:layout_marginTop="6dp"
                         android:layout_marginBottom="4dp"
                         android:gravity="center"
-                        android:text="Иванов Виктор Иванович"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
@@ -127,13 +127,13 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_barcode"
             android:layout_width="match_parent"
-            android:visibility="gone"
-            tools:visibility="visible"
             android:layout_height="142dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            app:cardCornerRadius="12dp">
+            android:visibility="gone"
+            app:cardCornerRadius="12dp"
+            tools:visibility="visible">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -166,211 +166,219 @@
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/my_frame"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="12dp">
+            android:layout_height="match_parent"
+            android:scrollIndicators="right"
+            android:scrollbarStyle="insideOverlay"
+            android:scrollbars="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp">
+                android:layout_marginTop="2dp"
+                android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/frame"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="6dp"
-                    android:src="@drawable/ic_frame_profile"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/count_frame"
-                    style="@style/CountsFont"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="125"
-                    app:layout_constraintBottom_toTopOf="@id/space_1"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Space
-                    android:id="@+id/space_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    app:layout_constraintTop_toBottomOf="@id/frame" />
-
-                <TextView
-                    android:id="@+id/text_frame"
-                    style="@style/DarkMainFont"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="6dp"
-                    android:text="@string/my_storage"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/frame" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="12dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="12dp">
-
-                <ImageView
-                    android:id="@+id/main_frame"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="6dp"
-                    android:src="@drawable/ic_available_at_main_frame_profile"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/count_main_frame"
-                    style="@style/CountsFont"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="125"
-                    app:layout_constraintBottom_toTopOf="@id/space_2"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Space
-                    android:id="@+id/space_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    app:layout_constraintTop_toBottomOf="@id/main_frame" />
-
-                <TextView
-                    style="@style/DarkMainFont"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="6dp"
-                    android:text="@string/available_for_in_main_frame"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/main_frame" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="12dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/my_warehouse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp">
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                app:cardCornerRadius="12dp">
 
-                <ImageView
-                    android:id="@+id/mini_frame"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="6dp"
-                    android:src="@drawable/ic_take_away_from_mini_frame_profile"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/count_mini_frame"
-                    style="@style/CountsFont"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="125"
-                    app:layout_constraintBottom_toTopOf="@id/space_3"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Space
-                    android:id="@+id/space_3"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    app:layout_constraintTop_toBottomOf="@id/mini_frame" />
-
-                <TextView
-                    style="@style/DarkMainFont"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="6dp"
-                    android:text="@string/take_away_from_mini_frame"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/mini_frame" />
+                    android:layout_margin="12dp">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageView
+                        android:id="@+id/warehouse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_warehouse_profile"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:id="@+id/count_warehouse"
+                        style="@style/CountsFont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        app:layout_constraintBottom_toTopOf="@id/space_1"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="12dp">
+                    <Space
+                        android:id="@+id/space_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        app:layout_constraintTop_toBottomOf="@id/warehouse" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+                    <TextView
+                        android:id="@+id/text_warehouse"
+                        style="@style/DarkMainFont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="6dp"
+                        android:text="@string/my_storage"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/warehouse" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_main_warehouse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp">
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                app:cardCornerRadius="12dp">
 
-                <ImageView
-                    android:id="@+id/another_engineer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="6dp"
-                    android:src="@drawable/ic_user_profile_add_new"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/count_another_engineer"
-                    style="@style/CountsFont"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="125"
-                    app:layout_constraintBottom_toTopOf="@id/space_4"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Space
-                    android:id="@+id/space_4"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    app:layout_constraintTop_toBottomOf="@id/another_engineer" />
+                    android:layout_height="match_parent"
+                    android:layout_margin="12dp">
 
-                <TextView
-                    style="@style/DarkMainFont"
-                    android:layout_width="wrap_content"
+                    <ImageView
+                        android:id="@+id/main_warehouse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_available_at_main_warehouse_profile"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/count_main_warehouse"
+                        style="@style/CountsFont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        app:layout_constraintBottom_toTopOf="@id/space_2"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Space
+                        android:id="@+id/space_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        app:layout_constraintTop_toBottomOf="@id/main_warehouse" />
+
+                    <TextView
+                        style="@style/DarkMainFont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="6dp"
+                        android:text="@string/available_for_in_main_warehouse"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/main_warehouse" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_mini_warehouse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                app:cardCornerRadius="12dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="6dp"
-                    android:text="@string/take_away_from_another_engineer"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/another_engineer" />
+                    android:layout_margin="12dp">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageView
+                        android:id="@+id/mini_warehouse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_take_away_from_mini_warehouse_profile"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.cardview.widget.CardView>
+                    <Space
+                        android:id="@+id/space_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        app:layout_constraintTop_toBottomOf="@id/mini_warehouse" />
+
+                    <TextView
+                        style="@style/DarkMainFont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="6dp"
+                        android:text="@string/take_away_from_mini_warehouse"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mini_warehouse" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_another_engineer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                app:cardCornerRadius="12dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp">
+
+                    <ImageView
+                        android:id="@+id/another_engineer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_user_profile_add_new"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/count_from_engineers"
+                        style="@style/CountsFont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        app:layout_constraintBottom_toTopOf="@id/space_4"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Space
+                        android:id="@+id/space_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        app:layout_constraintTop_toBottomOf="@id/another_engineer" />
+
+                    <TextView
+                        style="@style/DarkMainFont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="6dp"
+                        android:text="@string/take_away_from_another_engineer"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/another_engineer" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

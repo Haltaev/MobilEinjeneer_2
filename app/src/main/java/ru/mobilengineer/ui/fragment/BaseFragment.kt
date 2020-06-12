@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_auth.view.*
+import kotlinx.android.synthetic.main.progress_bar.*
 import ru.mobilengineer.ui.activity.BaseActivity
 
 abstract class BaseFragment : Fragment() {
@@ -30,6 +32,5 @@ abstract class BaseFragment : Fragment() {
         error?.let {
             Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
         }
-
     }
 }

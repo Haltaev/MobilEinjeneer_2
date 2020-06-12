@@ -34,23 +34,30 @@ class AddTouchIdFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         button_yes.setOnClickListener {
-            preferencesManager.isTouchIdAdded = true
-            preferencesManager.isAuthCompleted = true
+            preferencesManager.apply {
+                isTouchIdAdded = true
+                isAuthCompleted = true
+            }
             (activity as AuthorizationActivity).openCodeFragmentWithoutBackStack()
 
         }
         button_no.setOnClickListener {
-            preferencesManager.isTouchIdAdded = false
-            preferencesManager.isAuthCompleted = true
+            preferencesManager.apply {
+                isTouchIdAdded = false
+                isAuthCompleted = true
+            }
             (activity as AuthorizationActivity).openCodeFragmentWithoutBackStack()
         }
 
         log_out.setOnClickListener {
-            preferencesManager.isAuthCompleted = false
-            preferencesManager.isTouchIdAdded = false
-            preferencesManager.passcode = null
+            preferencesManager.apply {
+                isAuthCompleted = false
+                isTouchIdAdded = false
+                isPasscodeChanging = false
+                passcode = null
+            }
             AuthorizationActivity.open(requireContext())
-            (activity as AuthorizationActivity).finish()
+            (activity as AuthorizationActivity).finishAffinity()
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(this) {

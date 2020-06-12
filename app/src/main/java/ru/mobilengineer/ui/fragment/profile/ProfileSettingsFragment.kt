@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.CompoundButton
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.fragment_edit_profile_name.*
 import kotlinx.android.synthetic.main.fragment_profile_settings.*
 import ru.mobilengineer.App
 import ru.mobilengineer.R
@@ -18,6 +17,8 @@ import ru.mobilengineer.common.PreferencesManager
 import ru.mobilengineer.common.TakeOrChoosePhotoActivity
 import ru.mobilengineer.ui.activity.AuthorizationActivity
 import ru.mobilengineer.ui.activity.MyProfileActivity
+import ru.mobilengineer.ui.activity.MyProfileSettingsActivity
+import ru.mobilengineer.ui.activity.ScannerActivity
 import ru.mobilengineer.ui.fragment.BaseFragment
 import java.io.File
 import javax.inject.Inject
@@ -52,28 +53,33 @@ class ProfileSettingsFragment : BaseFragment(), MediaListener {
         photoHelper = TakeOrChoosePhotoActivity(this)
 
         preferencesManager.apply {
-            name_text.text = firstName + " " + lastName + " " + patronymic
+            name_text.text = fullName
         }
 
         log_out.setOnClickListener {
-            preferencesManager.isAuthCompleted = false
-            preferencesManager.isTouchIdAdded = false
-            preferencesManager.passcode = null
+            preferencesManager.apply {
+                isAuthCompleted = false
+                isTouchIdAdded = false
+                isPasscodeChanging = false
+                passcode = null
+            }
+
             AuthorizationActivity.open(requireContext())
-            (activity as MyProfileActivity).finish()
+            activity?.finishAffinity()
         }
 
         back_button.setOnClickListener {
-            activity?.supportFragmentManager?.popBackStack()
+            activity?.finish()
         }
 
         ll_change_passcode.setOnClickListener {
             preferencesManager.isPasscodeChanging = true
-            (activity as MyProfileActivity).openAuthorizationCodeFragment()
+//            AuthorizationActivity.open(requireContext())
+            (activity as MyProfileSettingsActivity).openAuthorizationCodeFragment()
         }
 
         cl_change_name.setOnClickListener {
-            (activity as MyProfileActivity).openEditProfileNameFragment()
+            (activity as MyProfileSettingsActivity).openEditProfileNameFragment()
         }
         add_image.setOnClickListener {
             context?.let {
@@ -110,12 +116,8 @@ class ProfileSettingsFragment : BaseFragment(), MediaListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         photoHelper.onActivityResult(this, requestCode, resultCode, data)
-    }
-
-    override fun onResume() {
-        super.onResume()
-//        if(preferencesManager.profileImagePath == null)
-
+        profile_image.visibility = View.VISIBLE
+        profile_image_empty.visibility = View.GONE
     }
 
     private fun selectImage(context: Context) {
@@ -145,14 +147,6 @@ class ProfileSettingsFragment : BaseFragment(), MediaListener {
         return File(photoPath)
     }
 
-    override fun showLoading() {
-        TODO("Not yet implemented")
-    }
-
-    override fun hideLoading() {
-        TODO("Not yet implemented")
-    }
-
     private fun setProfileImage(photoPath: String){
         val photo = getFile(photoPath)
 
@@ -162,6 +156,14 @@ class ProfileSettingsFragment : BaseFragment(), MediaListener {
         } ?: kotlin.run {
             showErrorToast(getString(R.string.error_photo_processing))
         }
+    }
+
+    override fun showLoading() {
+        TODO("Not yet implemented")
+    }
+
+    override fun hideLoading() {
+        TODO("Not yet implemented")
     }
 
     override fun success(photoPath: String) {

@@ -1,9 +1,11 @@
 package ru.mobilengineer.ui.activity
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.progress_bar.*
 import ru.mobilengineer.App
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -21,4 +23,5 @@ abstract class BaseActivity : AppCompatActivity() {
     fun showErrorToast(error: String) {
         Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
     }
+
 }

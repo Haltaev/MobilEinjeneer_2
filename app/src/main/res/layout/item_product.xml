@@ -9,6 +9,7 @@
     android:orientation="vertical">
 
     <View
+        android:id="@+id/top_line"
         android:layout_width="wrap_content"
         android:layout_height="1dp"
         android:layout_marginStart="16dp"
@@ -83,6 +84,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/group_buttons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -90,49 +92,64 @@
                 app:layout_constraintTop_toBottomOf="@id/art">
 
                 <Button
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="23dp"
                     android:id="@+id/button_not_transfer"
-                    style="@style/MyActionNegativeButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/MyActionGrayButtonStyle"
+                    android:gravity="center"
+                    android:layout_marginBottom="23dp"
+                    android:layout_width="94dp"
+                    android:layout_height="48dp"
                     android:text="@string/not_transfer" />
 
                 <LinearLayout
                     android:layout_marginBottom="23dp"
-                    android:layout_marginTop="12dp"
-                    android:id="@+id/positive_buttons_group"
+                    android:id="@+id/buttons_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                     <Button
-                        android:id="@+id/button_transfer"
+                        android:id="@+id/button_transfer_to_engineer"
                         style="@style/MyActionPositiveButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="94dp"
+                        android:layout_height="48dp"
                         android:text="@string/transfer_to_engineer" />
 
                     <Button
-                        android:id="@+id/button_turn_in"
+                        android:id="@+id/button_return_to_warehouse"
                         style="@style/MyActionPositiveButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="94dp"
+                        android:layout_height="48dp"
                         android:text="@string/return_to_the_warehouse" />
 
                     <Button
-                        android:id="@+id/button_install"
+                        android:id="@+id/button_install_in_device"
                         style="@style/MyActionPositiveButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="94dp"
+                        android:layout_height="48dp"
                         android:text="@string/install_in_device" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
+            <Button
+                android:id="@+id/button_take_away"
+                style="@style/MyActionPositiveButtonStyle"
+                android:layout_width="94dp"
+                android:visibility="gone"
+                android:layout_marginBottom="12dp"
+                android:layout_height="48dp"
+                android:text="@string/take_away" />
 
         </LinearLayout>
 
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/serial_number_recycler_view"
+        tools:listitem="@layout/item_serial_number"
+        android:layout_height="wrap_content">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

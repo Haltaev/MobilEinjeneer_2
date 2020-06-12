@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.annotation.Nullable
@@ -84,7 +83,7 @@ class CodeView : LinearLayout {
         }
         mCode = mCode.substring(0, mCode.length - 1)
         mCodeViews[mCode.length].background =
-            ContextCompat.getDrawable(context, R.drawable.ic_circle_blue)
+            ContextCompat.getDrawable(context, R.drawable.selector_circle)
         return mCode.length
     }
 
@@ -92,7 +91,7 @@ class CodeView : LinearLayout {
         mListener?.onCodeNotCompleted(mCode)
         mCode = ""
         for (codeView in mCodeViews) {
-            codeView.background = ContextCompat.getDrawable(context, R.drawable.ic_circle_blue)
+            codeView.background = ContextCompat.getDrawable(context, R.drawable.selector_circle)
         }
     }
 

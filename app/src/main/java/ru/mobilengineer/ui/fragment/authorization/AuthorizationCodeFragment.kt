@@ -1,6 +1,7 @@
 package ru.mobilengineer.ui.fragment.authorization
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -8,16 +9,19 @@ import androidx.activity.addCallback
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_add_launch_cod.*
 import ru.mobilengineer.App
+import ru.mobilengineer.MainViewModel
 import ru.mobilengineer.R
 import ru.mobilengineer.common.PreferencesManager
+import ru.mobilengineer.common.injectViewModel
 import ru.mobilengineer.ui.CodeView
 import ru.mobilengineer.ui.activity.AuthorizationActivity
-import ru.mobilengineer.ui.activity.HomeActivity
 import ru.mobilengineer.ui.activity.MyProfileActivity
 import ru.mobilengineer.ui.fragment.BaseFragment
+import ru.mobilengineer.viewmodel.AuthorizationViewModel
 import java.util.concurrent.Executor
 import javax.inject.Inject
 
@@ -36,6 +40,7 @@ class AuthorizationCodeFragment : BaseFragment() {
     private lateinit var executor: Executor
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
+
 
     override fun getLayoutId(): Int {
         return R.layout.fragment_add_launch_cod
@@ -69,18 +74,21 @@ class AuthorizationCodeFragment : BaseFragment() {
         showScreen(preferencesManager.isAuthCompleted)
 
         requireActivity().onBackPressedDispatcher.addCallback(this) {
-            if (preferencesManager.isAuthCompleted && preferencesManager.isPasscodeChanging) {
-                activity?.supportFragmentManager?.popBackStack()
-            }
-            if (preferencesManager.isAuthCompleted && !preferencesManager.isPasscodeChanging) {
-                (activity as AuthorizationActivity).finish()
-            }
-            if (!preferencesManager.isAuthCompleted) {
-                if (savedCode.isNullOrEmpty()) {
+            preferencesManager.apply {
+                if (isAuthCompleted && isPasscodeChanging) {
+                    isPasscodeChanging = false
                     activity?.supportFragmentManager?.popBackStack()
-                } else {
-                    showCreatePasscode()
-                    savedCode = null
+                }
+                else if (isAuthCompleted && !isPasscodeChanging) {
+                    (activity as AuthorizationActivity).finish()
+                }
+                if (!isAuthCompleted) {
+                    if (savedCode.isNullOrEmpty()) {
+                        activity?.supportFragmentManager?.popBackStack()
+                    } else {
+                        showCreatePasscode()
+                        savedCode = null
+                    }
                 }
             }
         }
@@ -93,17 +101,35 @@ class AuthorizationCodeFragment : BaseFragment() {
             showCreatePasscode()
             savedCode = null
         }
+        if (preferencesManager.isPasscodeChanging) {
+            log_out.visibility = View.GONE
+            touch_id.visibility = View.GONE
+        }
         touch_id.setOnClickListener {
             if (preferencesManager.isTouchIdAdded) biometricPrompt.authenticate(promptInfo)
             else (activity as AuthorizationActivity).openTouchFragment()
         }
         log_out.setOnClickListener {
-            preferencesManager.isAuthCompleted = false
-            preferencesManager.isTouchIdAdded = false
-            preferencesManager.passcode = null
+            preferencesManager.apply {
+                this.isAuthCompleted = false
+                isTouchIdAdded = false
+                passcode = null
+            }
             AuthorizationActivity.open(requireContext())
-            (activity as AuthorizationActivity).finish()
+            activity?.finishAffinity()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        preferencesManager.apply {
+            if (isTouchIdAdded
+                && isAuthCompleted
+                && !isPasscodeChanging
+            )
+                biometricPrompt.authenticate(promptInfo)
+        }
+
     }
 
     private val mOnKeyClickListener =
@@ -143,14 +169,15 @@ class AuthorizationCodeFragment : BaseFragment() {
     private fun showEnterPasscode() {
         clearCode()
         text_head_cod.text = getString(R.string.enter_cod)
-        touch_id.visibility = View.VISIBLE
+        if(isHasBiometricManager()) touch_id.visibility = View.VISIBLE
     }
 
-    private fun showInvalidPasscode() {
+    private fun showInvalidPasscode(isCreatePasscode: Boolean = false) {
         clearCode()
         code_view.invalidCode()
         text_head_cod.text = getString(R.string.invalid_entered_cod)
-        touch_id.visibility = View.VISIBLE
+        if(isCreatePasscode) touch_id.visibility = View.GONE
+        else if(!preferencesManager.isPasscodeChanging && isHasBiometricManager()) touch_id.visibility = View.VISIBLE
     }
 
     private fun compareCode(code: String) {
@@ -170,13 +197,12 @@ class AuthorizationCodeFragment : BaseFragment() {
                             clearCode()
                             (activity as AuthorizationActivity).openTouchFragment()
                         } else {
+                            preferencesManager.isAuthCompleted = true
                             (activity as AuthorizationActivity).openCodeFragment()
                         }
                     }
-//                    // open fragment_add_touch_id
                 } else {
-                    Toast.makeText(context, "invalid passcode", Toast.LENGTH_SHORT).show()
-                    showRepeatPasscode()
+                    showInvalidPasscode(true)
                 }
             }
         }
@@ -184,7 +210,7 @@ class AuthorizationCodeFragment : BaseFragment() {
         if (localPMPasscode != null && !preferencesManager.isPasscodeChanging) { // check passcode
             if (preferencesManager.passcode == code) {
                 clearCode()
-                HomeActivity.open(requireContext())
+                MyProfileActivity.open(requireContext())
                 (activity as AuthorizationActivity).finish()
                 // open fragment_my_profile
             } else {
@@ -221,7 +247,9 @@ class AuthorizationCodeFragment : BaseFragment() {
 
                 override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                     super.onAuthenticationSucceeded(result)
-                    Toast.makeText(context, "Authentication succeeded!", Toast.LENGTH_SHORT).show()
+                    MyProfileActivity.open(requireContext())
+                    (activity as AuthorizationActivity).finish()
+
                 }
 
                 override fun onAuthenticationFailed() {
@@ -230,9 +258,10 @@ class AuthorizationCodeFragment : BaseFragment() {
             })
 
         promptInfo = BiometricPrompt.PromptInfo.Builder()
-            .setTitle("Biometric login for my app")
-            .setSubtitle("Log in using your biometric credential")
-            .setNegativeButtonText("Use account password")
+            .setTitle(" ")
+            .setSubtitle(" ")
+            .setNegativeButtonText(" ")
+            .setDescription(" ")
             .build()
     }
 

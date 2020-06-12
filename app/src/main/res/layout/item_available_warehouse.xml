@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/product_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/top_line"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/colorSpace" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:id="@+id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="7dp"
+            android:src="@drawable/circle_check"
+            android:visibility="visible"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/ProductTitleStyle"
+                android:layout_width="288dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Картридж Kyocera TK1140 FS-1035/1135 7.2K SuperFine " />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:id="@+id/art"
+                    style="@style/ProductArtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="@string/art_"
+                    tools:text="Арт: ТК1130" />
+
+                <TextView
+                    android:id="@+id/is_in_stock"
+                    style="@style/ProductInStockStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    tools:text="В наличии" />
+
+                <TextView
+                    android:id="@+id/count"
+                    style="@style/CountsFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="end"
+                    android:textSize="14sp"
+                    tools:text="3 шт" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/buttons_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="23dp">
+
+                <Button
+                    android:id="@+id/button_refuse"
+                    style="@style/MyActionGrayButtonStyle"
+                    android:layout_width="94dp"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:text="@string/refuse" />
+
+                <Button
+                    android:id="@+id/button_receive"
+                    style="@style/MyActionPositiveButtonStyle"
+                    android:layout_width="94dp"
+                    android:layout_height="48dp"
+                    android:text="@string/receive" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/serial_number_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_serial_number">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>

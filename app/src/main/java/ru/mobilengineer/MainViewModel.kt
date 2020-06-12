@@ -26,24 +26,24 @@ class MainViewModel @Inject constructor(var context: Context) : ViewModel() {
     fun getContacts() {
         viewModelScope.launch {
 
-            try {
-                val response = apiService.getData()
-
-                preferencesManager.status = response.body()?.status
-
-                if (!response.isSuccessful || response.body() == null) {
-                    dataLiveData.postValue(null)
-                } else
-                    dataLiveData.postValue(Pair(response.body()!!, ""))
-
-            } catch (e: UnknownHostException) {
-                dataLiveData.postValue(Pair(emptyResp, "UnknownHostException"))
-                preferencesManager.status = "UnknownHostException"
-            } catch (e: Exception) {
-                dataLiveData.postValue(Pair(emptyResp, "Exception"))
-                preferencesManager.status = "Exception"
-
-            }
+//            try {
+//                val response = apiService.authorization()
+//
+//                preferencesManager.status = response.body()?.status
+//
+//                if (!response.isSuccessful || response.body() == null) {
+//                    dataLiveData.postValue(null)
+//                } else
+//                    dataLiveData.postValue(Pair(response.body()!!, ""))
+//
+//            } catch (e: UnknownHostException) {
+//                dataLiveData.postValue(Pair(emptyResp, "UnknownHostException"))
+//                preferencesManager.status = "UnknownHostException"
+//            } catch (e: Exception) {
+//                dataLiveData.postValue(Pair(emptyResp, "Exception"))
+//                preferencesManager.status = "Exception"
+//
+//            }
         }
     }
 }

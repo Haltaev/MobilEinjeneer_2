@@ -9,9 +9,9 @@ class RequestInterceptor(val preferencesManager: PreferencesManager) : Intercept
     override fun intercept(chain: Interceptor.Chain): Response {
         var request = chain.request()
 
-        preferencesManager.status?.let { token ->
+        preferencesManager.token?.let { token ->
             request = request.newBuilder()
-                .header("Authorization", "JWT " + token)
+                .header("Authorization", "Bearer " + token)
                 .build()
         }
 

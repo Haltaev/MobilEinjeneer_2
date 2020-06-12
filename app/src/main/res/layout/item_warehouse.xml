@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/warehouse_title"
+        android:layout_width="match_parent"
+        tools:text="Главный склад"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="11dp"
+        style="@style/DarkMainFont"
+        android:layout_marginStart="28dp"
+        android:textSize="12sp"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/colorSpace"/>
+
+</LinearLayout>

@@ -68,40 +68,68 @@ public class TakeOrChoosePhotoActivity {
     }
 
     private void checkPermissions(Fragment fragment, boolean isCamera) {
-        if (ContextCompat.checkSelfPermission(fragment.getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(fragment.getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+        if(isCamera) {
+            if (ContextCompat.checkSelfPermission(fragment.getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                    || ContextCompat.checkSelfPermission(fragment.getContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+                if (ActivityCompat.shouldShowRequestPermissionRationale(fragment.getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
-                new AlertDialog.Builder(fragment.getContext()).setMessage(R.string.error_permission_gallery)
-                        .setPositiveButton(android.R.string.ok, (dialog, which) -> fragment.requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                                isCamera ? PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE_CAMERA : PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE_GALLERY))
-                        .setNegativeButton(android.R.string.no, (dialog, which) -> dialog.dismiss())
-                        .setCancelable(false).create().show();
-            }
-            else {
-
-                if (permissionWasRequestedEarlier(fragment)) {
-
-                    new AlertDialog.Builder(fragment.getContext()).setMessage(R.string.error_permission_gallery_settings)
-                            .setPositiveButton(R.string.settings, (dialog, which) -> {
-                                Intent intent = new Intent();
-                                intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                Uri uri = Uri.fromParts("package", fragment.getActivity().getPackageName(), null);
-                                intent.setData(uri);
-                                fragment.startActivity(intent);
-                            }).setNegativeButton(android.R.string.no, (dialog, which) -> dialog.dismiss())
+                    new AlertDialog.Builder(fragment.getContext()).setMessage(R.string.error_permission_gallery_and_camera)
+                            .setPositiveButton(android.R.string.ok, (dialog, which) -> fragment.requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA},
+                                    PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE_CAMERA))
+                            .setNegativeButton(android.R.string.no, (dialog, which) -> dialog.dismiss())
                             .setCancelable(false).create().show();
+                } else {
 
+                    if (permissionWasRequestedEarlier(fragment)) {
+
+                        new AlertDialog.Builder(fragment.getContext()).setMessage(R.string.error_permission_gallery_and_camera_settings)
+                                .setPositiveButton(R.string.settings, (dialog, which) -> {
+                                    Intent intent = new Intent();
+                                    intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    Uri uri = Uri.fromParts("package", fragment.getActivity().getPackageName(), null);
+                                    intent.setData(uri);
+                                    fragment.startActivity(intent);
+                                }).setNegativeButton(android.R.string.no, (dialog, which) -> dialog.dismiss())
+                                .setCancelable(false).create().show();
+
+                    } else {
+                        fragment.requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA},
+                                PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE_CAMERA);
+                    }
                 }
-                else {
-                    fragment.requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                            isCamera ? PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE_CAMERA
-                                    : PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE_GALLERY);
-                }
-            }
+            } else onCameraClick(fragment);
         } else {
-            if (isCamera) onCameraClick(fragment);
-            else onGalleryClick(fragment);
+        if (ContextCompat.checkSelfPermission(fragment.getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+            {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(fragment.getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+                    new AlertDialog.Builder(fragment.getContext()).setMessage(R.string.error_permission_gallery)
+                            .setPositiveButton(android.R.string.ok, (dialog, which) -> fragment.requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                                    PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE_GALLERY))
+                            .setNegativeButton(android.R.string.no, (dialog, which) -> dialog.dismiss())
+                            .setCancelable(false).create().show();
+                } else {
+
+                    if (permissionWasRequestedEarlier(fragment)) {
+
+                        new AlertDialog.Builder(fragment.getContext()).setMessage(R.string.error_permission_gallery_settings)
+                                .setPositiveButton(R.string.settings, (dialog, which) -> {
+                                    Intent intent = new Intent();
+                                    intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    Uri uri = Uri.fromParts("package", fragment.getActivity().getPackageName(), null);
+                                    intent.setData(uri);
+                                    fragment.startActivity(intent);
+                                }).setNegativeButton(android.R.string.no, (dialog, which) -> dialog.dismiss())
+                                .setCancelable(false).create().show();
+
+                    } else {
+                        fragment.requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                                PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE_GALLERY);
+                    }
+                }
+            }else onGalleryClick(fragment);
         }
     }
 
@@ -144,8 +172,7 @@ public class TakeOrChoosePhotoActivity {
             if (requestCode == REQUEST_TAKE_PHOTO) {
                 processPhotoUri(photoUri, fragment);
             }
-        }
-        else Log.e("error", "onActivityResult");
+        } else Log.e("error", "onActivityResult");
 
     }
 
@@ -191,7 +218,9 @@ public class TakeOrChoosePhotoActivity {
 
         if (photoPath == null)
             observable = Observable.fromCallable(() -> remakeFileFromUri(photoUri, fragment));
-        else observable = Observable.just(photoPath);
+        else {
+            observable = Observable.just(photoPath);
+        }
 
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -214,7 +243,7 @@ public class TakeOrChoosePhotoActivity {
 
                     @Override
                     public void onError(Throwable e) {
-
+                        Log.e("Error", e.toString());
                     }
 
                     @Override

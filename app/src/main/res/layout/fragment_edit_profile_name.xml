@@ -58,11 +58,11 @@
         app:layout_constraintTop_toBottomOf="@id/fl_bar">
 
         <EditText
-            android:inputType="textCapSentences"
             android:layout_marginTop="30dp"
             android:id="@+id/last_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textNoSuggestions|textCapSentences"
             android:backgroundTint="@color/colorHint"
             android:drawableStart="@drawable/ic_line_38"
             android:drawablePadding="7dp"
@@ -70,7 +70,7 @@
             tools:text="Иванов" />
 
         <EditText
-            android:inputType="textCapSentences"
+            android:inputType="textNoSuggestions|textCapSentences"
             android:layout_marginTop="30dp"
             android:id="@+id/first_name"
             android:layout_width="match_parent"
@@ -80,9 +80,9 @@
             android:imeOptions="actionNext" />
 
         <EditText
-            android:inputType="textCapSentences"
+            android:inputType="textNoSuggestions|textCapSentences"
             android:layout_marginTop="30dp"
-            android:id="@+id/patronymic"
+            android:id="@+id/patronymic_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_line_38"
